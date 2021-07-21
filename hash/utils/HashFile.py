@@ -15,10 +15,11 @@ class HashFile():
     s = 0
     k = 0
     name = ""
+    hash = ""
 
     def __init__(self) -> None:
         self.generate_mod_divider()
-        print('Hello Word')
+        # print('Hello Word')
 
         
     # Hachage du message en SHA1
@@ -96,6 +97,7 @@ class HashFile():
 
         # returning the signature components
         # return(r,s,k)
+        self.hash = hash_component
         return hash_component
 
 

@@ -17,9 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-from hash.views import index
+from hash.views import index, hash
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name = "index"),
+    path('hash/', hash,  name= "hash")
 ]+static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
