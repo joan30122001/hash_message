@@ -1,5 +1,6 @@
 from hash.utils.HashFile import HashFile
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import Http404, HttpResponseRedirect
 
 # Create your views here.
 
@@ -35,10 +36,11 @@ def index(request):
 
 def hash(request):
     generate_hash()
-    # if request.method == "POST":
-    #     hasher.parameter_generation(int(request.POST['h']))
-    #     hasher.per_user_key()
-    #     hasher.name = request.POST['path']
-    #     print(request.POST['path'])
+    if request.method == "POST":
+        hasher.parameter_generation(int(request.POST['h']))
+        hasher.per_user_key()
+        hasher.name = request.POST['path']
+        print(request.POST['path'])
+        return HttpResponseRedirect('/')
 
     return render(request, "hash.html", {"param": hasher})

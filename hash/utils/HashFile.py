@@ -1,3 +1,5 @@
+# from Crypto.Util.number import *
+# from Crypto.Util.number import *
 from Crypto.Util.number import *
 from random import *
 from hashlib import sha1

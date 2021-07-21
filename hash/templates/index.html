@@ -36,7 +36,7 @@
 </head>
 <body>
     <section>
-        {{ hasher.hash }}
+        
         <form enctype = "multipart/form-data" method="POST" action="scripts/digital_signature.py">
             <h1 style="margin-bottom: 50px;"> DOCUMENT SIGNATURE FORM </h1>
             <label> <b>Prime divisator (q): </b> </label>
@@ -71,7 +71,7 @@
             <br>
 
             <label> <b>The hash of document send is:</b> </label>
-            <input type="text" style="margin-left: 20px; width: 740px;">
+            <input type="text" value={{ hasher.hash }} readonly style="margin-left: 20px; width: 740px;">
 
             <br>
 
