@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hash_Message</title>
+    <style>
+        body{
+            border: 0;
+            box-sizing: content-box;
+        }
+        input[type = "text"]{
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            outline: none;
+            border-bottom: 1px solid black;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        section{
+            box-sizing: content-box;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 5px;
+            margin-left: 150px;
+            margin-right: 150px;
+        }
+        input::placeholder{
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <form name="param" method="POST">
+            <h1 style="margin-bottom: 50px;"> HASH FORM </h1>
+            
+            <label> <b>Enter integer between {{param.q}} and {{param.p}} (h):</b> </label>
+            <input type="text" name="h" style="margin-left: 20px; width: 705px;">
+
+            <br>
+
+            <div style="margin-bottom: 5px;">
+                <label for="file"> <b>Enter the name of document to sign:</b> </label>
+                <input type="text" name="path" id="" placeholder="entrez le chemin absolut du fichier">
+                <!-- <input type="file" id="myFile" onchange="onChange()" name="myFile" multiple style="margin-left: 10px;">
+                <input type="hidden" name="path" value="delqno"> -->
+            </div>
+            <input type="submit" value="valider">
+            {% csrf_token %}
+        </form>
+
+    </section>
+</body>
+</html>

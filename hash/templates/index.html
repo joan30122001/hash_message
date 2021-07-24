@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hash_Message</title>
+    <style>
+        body{
+            border: 0;
+            box-sizing: content-box;
+        }
+        input[type = "text"]{
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            outline: none;
+            border-bottom: 1px solid black;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        section{
+            box-sizing: content-box;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 5px;
+            margin-left: 150px;
+            margin-right: 150px;
+        }
+        input::placeholder{
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        
+        <form enctype = "multipart/form-data" method="POST" action="scripts/digital_signature.py">
+            <h1 style="margin-bottom: 50px;"> DOCUMENT SIGNATURE FORM </h1>
+            <label> <b>Prime divisator (q): </b> </label>
+            <input type="text" style="margin-left: 20px;" value= {{ hasher.q }}>
+            
+            <label style="margin-left: 50px;"> <b>Prime modulus (p):</b> </label>
+            <input type="text" style="margin-left: 20px;" value = {{ hasher.p }}>
+
+            <br>
+
+            <label> <b>Enter integer between 1 and p-1(h):</b> </label>
+            <input type="text" style="margin-left: 20px; width: 705px;">
+
+            <br>
+
+            <label> <b>Value of g is :</b> </label>
+            <input type="text" style="margin-left: 20px; width: 155px;">
+            
+            <label style="margin-left: 50px;"> <b>x(Private key) is:</b> </label>
+            <input type="text" style="margin-left: 20px; width: 155px;">
+            
+            <label style="margin-left: 50px;"> <b>y(Public key) is:</b> </label>
+            <input type="text" style="margin-left: 20px; width: 155px;">
+
+            <br>
+
+            <div style="margin-bottom: 5px;">
+                <label for="file"> <b>Enter the name of document to sign:</b> </label>
+                <input type="file" id="file" name="file" multiple style="margin-left: 10px;">
+            </div>
+
+            <br>
+
+            <label> <b>The hash of document send is:</b> </label>
+            <input type="text" value={{ hasher.hash }} readonly style="margin-left: 20px; width: 740px;">
+
+            <br>
+
+            <label> <b>r :</b> </label>
+            <input type="text" style="margin-left: 20px; width: 245px;">
+            
+            <label style="margin-left: 50px;"> <b>k :</b> </label>
+            <input type="text" style="margin-left: 20px; width: 245px;">
+            
+            <label style="margin-left: 50px;"> <b>s :</b> </label>
+            <input type="text" style="margin-left: 20px; width: 245px;">
+
+            <br>
+
+            <div style="margin-bottom: 5px;">
+                <label for="file"> <b>Enter the name of document to verify:</b> </label>
+                <input type="file" id="files" name="file" multiple style="margin-left: 10px;">
+            </div>
+
+            <br>
+
+            <label> <b>The hash of document recieve is:</b> </label>
+            <input type="text" style="margin-left: 20px; width: 722px;">
+
+            <br>
+
+            <label> <b>w :</b> </label>
+            <input type="text" style="margin-left: 20px; width: 152px;">
+            
+            <label style="margin-left: 50px;"> <b>u1 :</b> </label>
+            <input type="text" style="margin-left: 20px; width: 152px;">
+            
+            <label style="margin-left: 50px;"> <b>u2 :</b> </label>
+            <input type="text" style="margin-left: 20px; width: 152px;">
+
+            <label style="margin-left: 50px;"> <b>v :</b> </label>
+            <input type="text" style="margin-left: 20px; width: 152px;">
+
+            <br>
+
+            <input type="text" placeholder="RESULT MESSAGE" style="width: 500px; height: 100px; color: blue; text-align: center; font-size: 30px; margin-top: 30px;">
+        </form>
+    </section>
+</body>
+</html>
