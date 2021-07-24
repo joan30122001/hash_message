@@ -1,0 +1,56 @@
+<!-- <!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hash_Message</title>
+    <style>
+        body{
+            border: 0;
+            box-sizing: content-box;
+        }
+        input[type = "text"]{
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            outline: none;
+            border-bottom: 1px solid black;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        section{
+            box-sizing: content-box;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 5px;
+            margin-left: 150px;
+            margin-right: 150px;
+            padding-bottom: 50px;
+        }
+        input::placeholder{
+            text-align: center;
+           
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <form name="params" method="POST">
+            <h1 style="margin-bottom: 50px;"> VERIFY FORM </h1>
+           
+            <div style="margin-bottom: 5px;">
+                <div style="margin-top: 20px;">
+                    <label for="file"> <b>Enter the name of document to verify:</b> </label>
+                    <input type="text" name="pathe" id="file" placeholder="entrez le chemin absolut du fichier">
+                   
+                </div>
+            </div>
+            <input type="submit" value="valider"  onclick="veriForm(this.form)" style="width: 300px; height: 50px; font-size: 30px;">
+            {% csrf_token %}
+        </form>
+
+    </section>
+</body>
+</html> -->

@@ -17,6 +17,7 @@ class HashFile():
     s = 0
     k = 0
     name = ""
+    # names = ""
     hash = ""
 
     def __init__(self) -> None:

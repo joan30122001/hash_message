@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-from hash.views import index, hash
+from hash.views import accueil, mairie, hash
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name = "index"),
-    path('hash/', hash,  name= "hash")
+    path('', accueil,  name= "accueil"),
+    path('mairie', mairie, name = "mairie"),
+    path('hash', hash, name = "hash"),
 ]+static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
