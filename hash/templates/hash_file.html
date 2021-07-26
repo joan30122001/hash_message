@@ -15,20 +15,20 @@
             font-weight: 400;
              text-align: center;
         }
-        .content{
+        /* .content{
             display: flex;
             justify-content: space-between;
-        }
+        } */
         .hash{
             text-align: center;
             width: 500px;
             margin-left: 100px;
         }
-        .verify{
+        /* .verify{
             text-align: center;
             width: 500px;
             margin-right: 100px;
-        }
+        } */
         /* input[type = "submit"]{
             font-size: 20px;
             width: 250px;
@@ -222,59 +222,26 @@ textarea {
     </style>
 </head>
 <body>
-    <div class="main">
-        <h1>Signiture et vérification de document</h1>
-
-        <div class="content">
-            <div class="hash"><div id="container">
-                    <h1>&bull; SIGN A FILE &bull;</h1>
-                    <div class="underline">
-                    </div>
-                    <form action="#" method="post" id="contact_form">
-                      <div class="telephone">
-                        <label for="name">the value of h:</label>
-                        <input type="text" placeholder="Enter a value between q and (p-1) h:" value={{hasher.h}} readonly name="" id="telephone_input">
-                      </div>
-                      <div class="telephone">
-                        <label for="name"></label>
-                        <input type="text" placeholder="Enter the absolute path of the file to hash:" name="" value={{hasher.name}} readonly id="telephone">
-                      </div>
-                      <!-- <div class="submit">
-                        <input type="submit" value="Generate Hash" id="form_button" />
-                      </div> -->
-                      <div class="message" style="margin-top: 50px;">
-                        <input type="text" placeholder="The hash Generate" value={{previous}} name="" readonly id="telephone" required>
-                      </div>
-                      {% csrf_token %}
-
-                    </form><!-- // End form -->
-                  </div><!-- // End #container -->
-            </div>
-            <div class="verify">
-                <div id="container">
-                    <h1>&bull; VERIFY A FILE &bull;</h1>
-                    <div class="underline">
-                    </div>
-                    <form action="#" method="post" id="contact_form">   
-                      <div class="telephone">
-                        <label for="name"></label>
-                        <input type="text" placeholder="Enter the absolute path of file to verify:" name="path" id="telephon">
-                      </div>
-                      {% if verify %}
-                        <div class="message" style="margin-top: 50px;">
-                            <input type="text" placeholder="The hash Generated" name="" value={{hasher.hash}} id="telephones">
-                      </div>
-                      {% else %}
-                        <div class="submit">
-                          <input type="submit" value="Generate Hash" id="form_button"/>
-                        </div>
-                      {% endif %}
-
-                      {% csrf_token %}
-
-                    </form><!-- // End form -->
-                </div><!-- // End #container -->
-            </div>
+    <div class="content">
+        <div class="hash"><div id="container">
+                <h1>&bull; SIGN A FILE &bull;</h1>
+                <div class="underline">
+                </div>
+                <form action="#" method="post" id="contact_form">
+                  <div class="telephone">
+                    <label for="name">The value of h:</label>
+                    <input type="text" placeholder="Enter a value between {{param.q}} and {{param.p}} h:" name="h">
+                  </div>
+                  <div class="telephone">
+                    <label for="name">The path of file:</label>
+                    <input type="text" placeholder="Enter the absolute path of the file to hash:" name="path">
+                  </div>
+                  <div class="submit">
+                    <a href="{% url 'hash'%}"><input type="submit" value="Hasher" id="form_button" /></a>
+                  </div>
+                  {% csrf_token %}
+                </form><!-- // End form -->
+              </div><!-- // End #container -->
         </div>
     </div>
 </body>

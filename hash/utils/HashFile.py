@@ -1,3 +1,4 @@
+# pylint: disable=no-self-use
 # from Crypto.Util.number import *
 # from Crypto.Util.number import *
 from Crypto.Util.number import *
@@ -10,6 +11,8 @@ class HashFile():
     q = 0
     g = 0
 
+    h = 0
+
     x = 0
     y = 0
 
@@ -20,8 +23,8 @@ class HashFile():
     # names = ""
     hash = ""
 
-    def __init__(self) -> None:
-        self.generate_mod_divider()
+    # def __init__(self):
+        # self.generate_mod_divider()
         # print('Hello Word')
 
         
@@ -49,7 +52,7 @@ class HashFile():
 
     # les paramètres globaux sont q,p et g
     def parameter_generation (self, h):
-
+        self.h = h
             
         flag=True
         while(flag):

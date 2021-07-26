@@ -4,12 +4,12 @@ from django.http import Http404, HttpResponseRedirect
 
 # Create your views here.
 
-# hasher = HashFile()
+hasher = HashFile()
 
 
-# def generate_hash():
-#     print(f"p = {hasher.p} q = {hasher.q}")
-#     hasher.generate_mod_divider()
+def generate_hash():
+    print(f"p = {hasher.p} q = {hasher.q}")
+    hasher.generate_mod_divider()
 
 # def index(request):
 #     hasher.signature()
@@ -66,5 +66,26 @@ def mairie(request):
     return render(request, "mairie.html")
 
 
+def hash_file(request):
+    generate_hash()
+    if request.method == "POST":
+        hasher.parameter_generation(int(request.POST['h']))
+        hasher.per_user_key()
+        hasher.name = request.POST['path']
+        print(request.POST['path'])
+        return HttpResponseRedirect('/hash')
+    return render(request, "hash_file.html", {"param": hasher})
+
+
 def hash(request):
-    return render(request, "hash.html")
+    hasher.signature()
+    previous_hash = hasher.hash
+    verify = False
+
+    if request.method == "POST":
+        hasher.name = request.POST['path']
+        hasher.signature()
+        verify = True
+    context = {"hasher": hasher, "previous": previous_hash, "verify": verify}
+
+    return render(request, "hash.html", context)
